@@ -1,0 +1,99 @@
+$user-choice-text-color: #575757;
+$user-choice-font-family: Arial, Helvetica, sans-serif;
+$user-choice-font-weight: bold;
+$user-choice-color: darkblue;
+$user-choice-border-radius: 18px;
+
+.user-choice-header {
+  h3 {
+    font-weight: bolder;
+    color: $user-choice-text-color;
+    text-align: center;
+    font-size: 32px;
+    font-family: $user-choice-font-family;
+    margin-top: 20px;
+  }
+
+  #text_1 {
+    font-weight: $user-choice-font-weight;
+    color: $user-choice-text-color;
+    text-align: center;
+    font-size: 24px;
+    font-family: $user-choice-font-family;
+  }
+}
+
+.user-choice-button {
+  font-weight: $user-choice-font-weight;
+  color: $user-choice-text-color;
+  font-size: 20px;
+  font-family: $user-choice-font-family;
+ }
+
+#move1 {
+  border-radius: 18px;
+
+  padding: 16px 32px;
+  background-color: white;
+  border: 1px solid #005CB9;
+  box-shadow: 5px 5px 20px #182019;
+  margin: 15px 20px 50px;
+
+  &:hover {
+    background-color: #e7e7e7;
+  }
+
+  &:focus {
+    outline: 0;
+    border: 0;
+    color: darkblue;
+    border-radius: $user-choice-border-radius;
+  }
+
+
+  @media screen and (max-width: 567px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 568px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 768px) {
+    width: 312px;
+    height: 244px;
+  }
+}
+
+#move2 {
+  border-radius: 18px;
+  margin-outside: 50px;
+  padding: 16px 32px;
+  background-color: white;
+  border: 1px solid #005CB9;
+  box-shadow: 5px 5px 20px #182019;
+  margin: 15px 20px 100px;
+
+  &:hover {
+    background-color: #e7e7e7;
+  }
+
+  &:focus {
+    outline: 0;
+    border: 0;
+    color: $user-choice-color;
+    border-radius: $user-choice-border-radius;
+    width: 312px;
+    height: 244px;
+  }
+
+
+  @media screen and (max-width: 567px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 568px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 768px) {
+    width: 312px;
+    height: 244px;
+  }
+}

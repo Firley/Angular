@@ -1,0 +1,94 @@
+$background_color: #ffffff;
+$button_font_color: #039be5;
+$button_border_color: #039be5;
+$hover_button_background_color: #039be5;
+$hover_button_font_color: #fffff;
+
+.button {
+  background-color: $background_color;
+  border: 1px solid $button_border_color;
+  border-radius: 16px;
+  color: $button_font_color;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin: 2px;
+  cursor: pointer;
+  height: 40px;
+  padding-left: 5px;
+  padding-right: 5px;
+
+  @media screen and (max-width: 765px) {
+    border: white;
+    align-items: right;
+  }
+
+  &:hover {
+    background-color: $hover_button_background_color;
+    color: white;
+    border: none;
+  }
+}
+
+.active {
+  background-color: $hover_button_background_color;
+  color: white;
+  border: none;
+}
+
+// ustawienie  widocznosci przycisku (hamburgera) dla urzadzen mobilny
+.fa.fa-navicon {
+  color: blue;
+  padding: 3px;
+  font-size: 25px;
+}
+
+.navbar {
+  height: 80px;
+}
+
+.navbar-brand {
+  img {
+    @media screen and (max-width: 567px) {
+      width: 160px;
+    }
+    @media screen and (min-width: 568px) {
+      width: 200px;
+    }
+    @media screen and (min-width: 768px) {
+      width: auto;
+    }
+  }
+}
+
+.navbar-nav {
+  background-color: $background_color;
+}
+
+.collapse {
+  color: $background_color;
+
+  @media screen and (max-width: 567px) {
+    width: 50% !important;
+  }
+  @media screen and (min-width: 568px) {
+    max-width: 100%;
+  }
+  @media screen and (min-width: 768px) {
+    width: auto;
+  }
+}
+.nav-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-self: center;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.navbar.navbar-expand-md {
+  background-color: $background_color;
+  width: 100%;
+}
+
+

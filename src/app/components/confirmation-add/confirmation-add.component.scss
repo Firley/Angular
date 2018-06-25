@@ -1,0 +1,36 @@
+.h4 {
+  color: #005CB9;
+  font-size: 18px;
+
+  @media screen and (max-width: 480px) {
+    font-size: 14px;
+    }
+ }
+
+.btn {
+  background-color: #A91AC9;
+  border-radius: 16px;
+  border: 1px solid #A91AC9;
+  display: inline-block;
+  cursor: pointer;
+  height: 40px;
+  width: 250px;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.okej {
+  margin-bottom: 25px;
+   margin-top: 25px;
+  align-items: center;
+}
+
+
+.linkk {
+  margin-bottom: 100px;
+}
+
+.add-user-route-btn {
+  margin-top: 50px;
+}

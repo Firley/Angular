@@ -1,0 +1,19 @@
+<div class="container-fluid d-flex flex-column align-items-center mb-lg-5">
+  <div class="user-choice-header mt-5 mb-5">
+    <h3>Witaj! {{ user }}</h3>
+    <span id="text_1" class="mb-1">Co chcesz dziś zrobić?</span>
+  </div>
+
+  <div class="user-choice-container d-flex flex-column flex-sm-column flex-md-row flex-lg-row align-items-stretch">
+    <div class="btn d-flex align-items-center justify-content-center flex-column" id="move1"
+         [routerLink]="['/route-list']">
+      <span class="user-choice-button mb-3">Chcę wyszukać przejazd</span>
+      <img src="assets/images/niebieski_samochór.png" width="110px" height="90px">
+    </div>
+    <div class="btn d-flex align-items-center justify-content-center flex-column" id="move2"
+         [routerLink]="['/your-routes']">
+      <span class="user-choice-button mb-3">Chcę dodać ofertę przejazdu</span>
+      <img src="assets/images/zielony_samochod.png" width="90px" height="90px">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="top jumbotron-fluid">
+  <div class="container">
+    <h2 class="top-header">Z nami wygodnie do celu...</h2>
+    <h4 class="top-header-2">Znajdź swoją trasę</h4>
+    <form class="table position d-flex flex-column flex-sm-row flex-sm-wrap align-content-sm-around"
+          [formGroup]="searchForm">
+      <div class="form-row">
+        <input type="text" class="form-control-label" id="cityFrom" placeholder="miejsce startu"
+               formControlName="cityFrom">
+      </div>
+
+      <div class="form-row">
+        <input type="text" class="form-control-label" placeholder="miejsce docelowe" formControlName="cityTo">
+      </div>
+
+      <div class="form-row">
+        <input type="date" class="form-control-label" name="datapicker" formControlName="date">
+      </div>
+      <div class="form-row">
+        <button type="submit" class="btn d-flex btn-primary" (click)="setSearchData()">
+          wyszukaj połączenia
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<section class="adventages">
+  <div class="container">
+    <div class="row">
+      <div class="advert col-12 col-sm-4  d-inline">
+        <img src="/assets/images/czlowiek.png" alt="ikona ludzika" class="mx-auto d-block mb-3">
+        <p class="ptext text-center">Zdecyduj dokąd<br> chcesz jechać</p>
+      </div>
+      <div class="col-12 col-sm-4  d-inline">
+        <img src="/assets/images/auta.png" alt="ikony samochodów" class="mx-auto d-block mb-3">
+        <p class=" ptext text-center">Wyszukaj pojazd<br> w Przejazdomacie</p>
+      </div>
+      <div class="col-12 col-sm-4  d-inline">
+        <img src="/assets/images/miasto.png" alt="ikona miasta" class="mx-auto d-block mb-3">
+        <p class="ptext text-center">Zwiedzaj, odwiedzaj,<br> baw się dobrze</p>
+      </div>
+    </div>
+  </div>
+</section>

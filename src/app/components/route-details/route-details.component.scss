@@ -1,0 +1,66 @@
+$route-list-btn: rgb(1, 148, 156);
+
+.part {
+  padding: 15px;
+  text-align: left;
+  vertical-align: top;
+  display: inline-block;
+
+  @media screen and (max-width: 567px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 568px) {
+    width: 20rem;
+  }
+  @media screen and (min-width: 768px) {
+    width: 30rem;
+  }
+}
+
+.route-list-btn {
+  opacity: 1;
+  border-radius: 20px;
+  border: 1px solid $route-list-btn;
+  background-size: auto;
+  background: $route-list-btn none repeat center center;
+  width: 100px;
+  color: white !important;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 5px;
+}
+
+.header1 {
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.txt {
+  font-size: 18px;
+}
+
+.card {
+  width: 100%;
+}
+
+#book {
+  border: 1px solid #FF00FF;
+  color: #ffffff;
+  background: #FF00FF none repeat center center;
+  height: 38px;
+  width: 150px;
+  opacity: 1;
+  border-radius: 20px;
+  outline: 0;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 5px;
+
+  &:hover {
+    outline: 0;
+    border: 1px solid rgb(240, 100, 240);
+    background: rgb(240, 100, 240);
+    height: 38px;
+    width: 150px;
+  }
+}

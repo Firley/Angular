@@ -1,0 +1,61 @@
+//globalne style
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.p {
+  color: #000000
+}
+
+.btn {
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.link {
+  color: #147EE0;
+}
+
+.content {
+  padding-top: 80px;
+}
+
+label, h3 {
+  font-weight: bold;
+}
+
+
+.spinner {
+  width: 120px;
+  height: 120px;
+  border-top: 3px solid #005CB9;
+  border-bottom: 3px solid #B7BA00;
+  border-right: 3px solid #A91AC9;
+  border-left: 3px solid #999999;
+  border-radius: 100%;
+  padding: 10px 20px;
+  animation: spin 2s infinite linear;
+
+  @media screen and (max-width: 567px) {
+    margin: auto auto 100px;
+  }
+  @media screen and (min-width: 568px) {
+    margin: auto auto 250px;
+  }
+  @media screen and (min-width: 768px) {
+    margin: auto;
+  }
+}
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+

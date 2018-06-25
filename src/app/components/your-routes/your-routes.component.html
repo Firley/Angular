@@ -1,0 +1,201 @@
+<div class="container-fluid d-flex flex-column align-items-center route-add-div">
+  <div class="route-add-blur-bg">
+    <div class="your-routes-header mt-5 mb-1">
+      <h2><img class="title_btn" src="assets/images/zielony_samochod.png">Dodawanie oferty przejazdu </h2>
+    </div>
+
+    <div class="route-add-form d-flex flex-column">
+      <form [formGroup]="addRouteForm">
+
+        <h4 class="header4 mt-3 mb-4">Podaj informację o oferowanym przejeździe</h4>
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label mt-2" for="travelDate">Data przejazdu</label>
+          <div class="col-sm-8">
+            <input type="date" class="form-control" id="travelDate" name="travelDate" min="{{ actualDate }}"
+                   formControlName="travelDate" required>
+
+            <div
+              *ngIf="addRouteForm.get('travelDate').invalid && addRouteForm.get('travelDate').touched"
+              class="alert alert-danger">
+
+              <div *ngIf="addRouteForm.get('travelDate').hasError('required')">
+                Pole jest wymagane
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label" for="cityFrom">Miejscowość od</label>
+          <div class="col-sm-8">
+            <input type="text" id="cityFrom" name="cityFrom" class="form-control" formControlName="cityFrom" required>
+
+            <div
+              *ngIf="addRouteForm.get('cityFrom').invalid && addRouteForm.get('cityFrom').touched"
+              class="alert alert-danger">
+
+              <div *ngIf="addRouteForm.get('cityFrom').hasError('required')">
+                Pole jest wymagane
+              </div>
+              <div *ngIf="addRouteForm.get('cityFrom').hasError('minlength')">
+                Pole musi mieć conajmniej 3 znaki
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label" for="cityTo">Miejscowość do</label>
+          <div class="col-sm-8">
+            <input type="text" id="cityTo" name="cityTo" class="form-control" formControlName="cityTo" required>
+
+            <div
+              *ngIf="addRouteForm.get('cityTo').invalid && addRouteForm.get('cityTo').touched"
+              class="alert alert-danger">
+
+              <div *ngIf="addRouteForm.get('cityTo').hasError('required')">
+                Pole jest wymagane
+              </div>
+              <div *ngIf="addRouteForm.get('cityTo').hasError('minlength')">
+                Pole musi mieć conajmniej 3 znaki
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label" for="routPrice">Cena za przejazd</label>
+          <div class="col-sm-8">
+            <div class="input-group">
+              <input type="number" id="routPrice" name="routPrice" class="form-control col-sm-7" formControlName="routPrice" placeholder="0.01"
+                     required>
+              <div class="input-group-append">
+                <span class="input-group-text">PLN</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-5 offset-md-4">
+            <div
+              *ngIf="addRouteForm.get('routPrice').invalid && addRouteForm.get('routPrice').touched"
+              class="alert alert-danger">
+
+              <div *ngIf="addRouteForm.get('routPrice').hasError('required')">
+                Pole jest wymagane
+              </div>
+              <div *ngIf="addRouteForm.get('routPrice').hasError('min')">
+                Pole musi mieć wartość minimum 0.01
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="header4 mt-3 mb-4">Podaj informację o swoim samochodzie</h4>
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label" for="carModel">Marka</label>
+          <div class="col-sm-8">
+            <input type="text" id="carModel" name="carModel" class="form-control" formControlName="carModel" required>
+
+            <div
+              *ngIf="addRouteForm.get('carModel').invalid && addRouteForm.get('carModel').touched"
+              class="alert alert-danger">
+
+              <div *ngIf="addRouteForm.get('carModel').hasError('required')">
+                Pole jest wymagane
+              </div>
+              <div *ngIf="addRouteForm.get('carModel').hasError('minlength')">
+                Pole musi mieć conajmniej 3 znaki
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label" for="carMake">Model</label>
+          <div class="col-sm-8">
+            <input type="text" id="carMake" name="carMake" class="form-control" formControlName="carMake" required>
+
+            <div
+              *ngIf="addRouteForm.get('carMake').invalid && addRouteForm.get('carMake').touched"
+              class="alert alert-danger">
+
+              <div *ngIf="addRouteForm.get('carMake').hasError('required')">
+                Pole jest wymagane
+              </div>
+              <div *ngIf="addRouteForm.get('carMake').hasError('minlength')">
+                Pole musi mieć conajmniej 3 znaki
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label" for="carNo">Numer rejestracyjny pojazdu</label>
+          <div class="col-sm-8">
+            <input type="text" id="carNo" name="carNo" class="form-control" formControlName="carNo" required>
+            <div
+              *ngIf="addRouteForm.get('carNo').invalid && addRouteForm.get('carNo').touched"
+              class="alert alert-danger">
+
+              <div *ngIf="addRouteForm.get('carNo').hasError('required')">
+                Pole jest wymagane
+              </div>
+              <div *ngIf="addRouteForm.get('carNo').hasError('minlength')">
+                Pole musi mieć conajmniej 3 znaki
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-4 col-form-label" for="freeSpace">Ilość wolnych miejsc</label>
+          <div class="col-sm-8">
+            <input type="number" id="freeSpace" name="freeSpace" class="form-control" formControlName="freeSpace" required>
+            <div
+              *ngIf="addRouteForm.get('freeSpace').invalid && addRouteForm.get('freeSpace').touched"
+              class="alert alert-danger">
+
+              <div *ngIf="addRouteForm.get('freeSpace').hasError('required')">
+                Pole jest wymagane
+              </div>
+              <div *ngIf="addRouteForm.get('freeSpace').hasError('min')">
+                Pole musi mieć wartość minimum 1
+              </div>
+              <div *ngIf="addRouteForm.get('freeSpace').hasError('max')">
+                Pole musi mieć wartość maksymalnie 4
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" *ngIf="showLoader">
+          <progressbar max="100" [value]="100" type="info" [striped]="true" [animate]="true">Trwa zapisywanie
+          </progressbar>
+        </div>
+        <div class="row" *ngIf="showSuccessInfo">
+          <div class="alert alert-success offset-md-4" role="alert">
+            Poprawnie zapisano formularz
+          </div>
+        </div>
+        <div class="row" *ngIf="showErrors">
+          <div class="alert alert-danger offset-md-4" role="alert">
+            Wystąpił błąd w trakcie zapisu formularza. Spróbuj ponownie.
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="row two-button">
+            <div class="col-4">
+              <button type="button" class="btn btn-link pull-left" [routerLink]="['/user-routes']">&larr;Wstecz</button>
+            </div>
+            <div class="col-4">
+              <button type="submit" class="save-user-route-btn" (click)="formSubmit()" [disabled]="addedRoute">Zapisz</button>
+            </div>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

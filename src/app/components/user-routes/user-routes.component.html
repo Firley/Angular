@@ -1,0 +1,54 @@
+<div style="padding: 20px" *ngIf="loading">
+  <div class="spinner">
+  </div>
+</div>
+<div class="container-fluid d-flex flex-column align-items-center" *ngIf="!loading">
+
+  <div class="user-routes-header mt-5 mb-5">
+    <h3><img class="title_btn" src="assets/images/zielony_samochod.png">Moje oferty przejazdów</h3>
+  </div>
+
+  <div class="mb-5 d-flex flex-column flex-sm-column flex-md-row flex-lg-row align-items-stretch">
+    <div class="d-flex align-items-center justify-content-center flex-column">
+      <a class="add-user-route-btn btn" [routerLink]="['/your-routes']">Dodaj ofertę przejazdu</a>
+    </div>
+    <div class="d-flex align-items-center justify-content-center flex-column mt-2 mt-md-0">
+      <a class="route-list-btn btn" [routerLink]="['/route-list']">Przejdź do listy przejazdów</a>
+    </div>
+  </div>
+
+  <table class="table table-striped table-responsive-sm user-routes-table" *ngIf="userRoutes">
+    <thead>
+    <tr>
+      <th style="width: 5%">Nr</th>
+      <th style="width: 15%">Samochód</th>
+      <th style="width: 10%">Numer rejestracyjny</th>
+      <th style="width: 15%">Data przejazdu</th>
+      <th style="width: 15%">Miasto od</th>
+      <th style="width: 15%">Miasto do</th>
+      <th style="width: 5%">Liczba wolnych miejsc</th>
+      <th style="width: 10%">Cena</th>
+      <th style="width: 5%"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let route of userRoutes; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ route.routeDetails[0].carModel }} {{ route.routeDetails[0].carMake }}</td>
+      <td>{{ route.routeDetails[0].carNo }}</td>
+      <td>{{ route.travelDate | date:'dd-MM-yyyy' }}</td>
+      <td>{{ route.cityFrom }}</td>
+      <td>{{ route.cityTo }}</td>
+      <td>{{ route.routeDetails[0].freeSpace }}</td>
+      <td>{{ route.routeDetails[0].routPrice }} {{ route.routeDetails[0].currency }}</td>
+      <td><a [routerLink]="['/edit-route', route._id]" class="edit-route-link" href="">Edytuj</a></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="infoMessage" *ngIf="!userRoutes">
+    <div class="alert alert-info" role="alert">
+      Brak przypisanych ofert przejazdów. Dodaj nową ofertę przejazdu.
+    </div>
+  </div>
+</div>

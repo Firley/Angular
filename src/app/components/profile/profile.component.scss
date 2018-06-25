@@ -1,0 +1,57 @@
+.part {
+  padding: 15px;
+  text-align: left;
+  vertical-align: top;
+  display: inline-block;
+
+  @media screen and (max-width: 567px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 568px) {
+    width: 20rem;
+  }
+  @media screen and (min-width: 768px) {
+    width: 30rem;
+  }
+}
+
+.txt {
+  font-size: 18px;
+}
+
+.card {
+  width: 100%;
+}
+
+.return-btn {
+  opacity: 1;
+  border-radius: 20px;
+  border: 1px solid  rgb(1, 148, 156);
+  background-size: auto;
+  background: rgb(1, 148, 156) none repeat center center;
+  width: 100px;
+  color: white !important;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 5px;
+}
+
+.edit-route-btn {
+  opacity: 1;
+  border-radius: 20px;
+  border: 1px solid #575757;
+  background-size: auto;
+  background: rgb(169, 26, 201) none repeat center center;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 5px 2px;
+  width: 150px;
+  height: 39px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+
+  &:focus {
+    outline: 0;
+  }
+}

@@ -1,0 +1,115 @@
+.top {
+  padding: 165px 0 175px;
+  background-size: cover;
+  width: 100%;
+
+
+  @media only screen and (max-width: 350px) {
+    background: url("/assets/images/main_male.png") no-repeat;
+    background-size: 100%;
+    }
+
+  @media only screen and (max-width: 480px) {
+    background: url("/assets/images/main_male.png") no-repeat;
+    padding: 320px 0 0;
+    background-size: 100%;
+  }
+
+  @media screen and (min-width: 568px) {
+    background: url("/assets/images/main_srednie.png") no-repeat center center;
+    background-size: 100%;
+  }
+  @media screen and (min-width: 768px) {
+    background: url("/assets/images/main_big.png") no-repeat center center;
+    background-size: 100%;
+    margin-bottom: 50px;
+  }
+  @media screen and (min-width: 1080px) {
+    background: url("/assets/images/main-extra-big.png") no-repeat;
+    height: 60rem;
+    margin-bottom: 140px;
+  }
+}
+
+.btn {
+  background-color: #A91AC9;
+  border-radius: 16px;
+  border: 1px solid #A91AC9;
+  display: inline-block;
+  cursor: pointer;
+  height: 40px;
+
+
+  @media only screen and (max-width: 520px) {
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    padding: 2px 90px;
+    margin-bottom: 50px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    width: 190px;
+    padding-right: 4px;
+   }
+}
+
+.top-header {
+  font-size: 44px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  @media only screen and (max-width: 350px) {
+    font-size: 24px;
+    margin-top: 0px;
+    }
+
+  @media only screen and (max-width: 480px) {
+    font-size: 24px;
+  }
+}
+
+.top-header-2 {
+  font-size: 24px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+
+  @media only screen and (max-width: 520px) {
+    font-size: 14px;
+  }
+}
+
+.form-control-label {
+  border: 1px solid #C8C8C8;
+  background-color: #ffffff;
+  color: #999999;
+  box-shadow: none;
+  height: 40px;
+  border-radius: 16px;
+  text-align: center;
+  margin-right: 30px;
+  margin-bottom: 15px;
+
+
+  @media only screen and (max-width: 480px) {
+    height: 30px;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+.label {
+  display: inline-block;
+  height: 30px;
+}
+
+.form-row {
+  display: inline-block;
+}
+
+
+.advert {
+  margin-bottom: 150px;
+}
+

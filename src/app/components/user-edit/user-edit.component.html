@@ -1,0 +1,91 @@
+<div style="padding: 20px" *ngIf="loading">
+  <div class="spinner">
+  </div>
+</div>
+<div class="container-fluid d-flex flex-column align-items-center" *ngIf="!loading">
+  <h4 class="top mr-5">Zmień dane konta</h4>
+
+  <form class="d-flex flex-column" [formGroup]="editUserForm">
+    <div>
+      <input type="text" class="form-check-label" placeholder="login" formControlName="login">
+      <div
+        *ngIf="editUserForm.get('login').invalid && editUserForm.get('login').touched"
+        class="alert alert-danger">
+
+        <div *ngIf="editUserForm.get('login').hasError('required')">
+          Pole jest wymagane
+        </div>
+        <div *ngIf="editUserForm.get('login').hasError('minlength')">
+          Pole musi mieć conajmniej 3 znaki
+        </div>
+        <div *ngIf="editUserForm.get('login').hasError('pattern')">
+          Pole zawiera niedozwolone formatowanie
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <input type="text" class="form-check-label" placeholder="e-mail" formControlName="userEmail">
+      <div
+        *ngIf="editUserForm.get('userEmail').invalid && editUserForm.get('userEmail').touched"
+        class="alert alert-danger">
+
+        <div *ngIf="editUserForm.get('userEmail').hasError('required')">
+          Pole jest wymagane
+        </div>
+
+        <div *ngIf="editUserForm.get('userEmail').hasError('email')">
+          Niepoprawny adres email
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <input type="text" class="form-check-label" placeholder="telefon" formControlName="userPhone">
+      <div
+        *ngIf="editUserForm.get('userPhone').invalid && editUserForm.get('userPhone').touched"
+        class="alert alert-danger">
+
+        <div *ngIf="editUserForm.get('userPhone').hasError('required')">
+          Pole jest wymagane
+        </div>
+
+        <div *ngIf="editUserForm.get('userPhone').hasError('pattern')">
+          Pole zawiera niedozwolone formatowanie. Poprawne 000-000-000
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="showLoader">
+      <progressbar max="100" [value]="100" type="info" [striped]="true" [animate]="true">Trwa zapisywanie
+      </progressbar>
+    </div>
+    <div *ngIf="showSuccessInfo">
+      <div class="alert alert-success" role="alert">
+        Poprawnie zmieniono dane użytkownika. <br>
+        Za chwile nastąpi przekierowanie na stronę profilu użytkownika.
+      </div>
+    </div>
+    <div *ngIf="showErrors">
+      <div class="alert alert-danger" role="alert">
+        Wystąpił błąd w trakcie zapisu formularza. Spróbuj ponownie.
+      </div>
+    </div>
+
+    <div *ngIf="showNonUniqueMail">
+      <div class="alert alert-danger" role="alert">
+        Niestety podany adres email jest zajęty. Spróbuj ponownie z innym adresem email.
+      </div>
+    </div>
+
+    <div class="row two-button">
+      <div class="col-4">
+        <button type="button" class="btn return-btn pull-left" [routerLink]="['/profile']">&larr;Wstecz</button>
+      </div>
+      <div class="col-4">
+        <button type="submit" class="save-user-btn" [disabled]="blockUserEditBtn" (click)="editUserFormSubmit()">Zapisz</button>
+      </div>
+    </div>
+  </form>
+</div>
+

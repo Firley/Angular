@@ -1,0 +1,65 @@
+<header>
+  <div class="container-fluid">
+    <nav class="navbar navbar-expand-md fixed-top">
+      <a routerLink="/home"
+         class="navbar-brand">
+        <img src="assets/images/logo.png"
+             alt="Przejazdomat Logo"></a>
+      <button class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-label="Toggle navigation">
+     <span class="navbar-toggler-icon">
+       <i class="fa fa-navicon"></i>
+     </span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a routerLink="/"
+               class="nav-link button"
+               *ngIf="!authService.isAuthenticated()"
+               (click)="authService.login()">Zaloguj się</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/registration"
+               routerLinkActive="active"
+               class="nav-link button"
+               *ngIf="!authService.isAuthenticated()">Zarejestruj się</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/profile"
+               routerLinkActive="active"
+               class="nav-link button"
+               *ngIf="authService.isAuthenticated()">Mój profil</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/user-reservations"
+               routerLinkActive="active"
+               class="nav-link button"
+               *ngIf="authService.isAuthenticated()">Moje rezerwacje przejazdów</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/user-routes"
+               routerLinkActive="active"
+               class="nav-link button"
+               *ngIf="authService.isAuthenticated()">Moje oferty przejazdów</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/home"
+               routerLinkActive="active"
+               class="nav-link button"
+               *ngIf="authService.isAuthenticated()"
+               (click)="authService.logout();">Wyloguj się</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+

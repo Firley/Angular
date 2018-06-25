@@ -1,0 +1,77 @@
+<div style="padding: 20px" *ngIf="loading">
+  <div class="spinner">
+  </div>
+</div>
+
+<div class="container-fluid d-flex flex-column align-items-center" *ngIf="!loading">
+
+  <div class="route-list-header mb-5">
+    <h3><img class="title_btn" src="assets/images/niebieski_samochór.png">Przejazdy</h3>
+  </div>
+
+<!--  <div class="route-list-search-div mb-5">
+    <form class="form-inline d-flex flex-sm-column flex-column flex-md-row flex-lg-row">
+      <input id="search_field" class="form-control mr-lg-2" type="text">
+      <button type="button" name="search" class="search-btn">Szukaj przejazdu</button>
+    </form>
+  </div>-->
+
+  <div class="row mb-3" *ngIf="reservationError">
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      Wystąpił błąd w trakcie rezerwacji przejazdu. Spróbuj ponownie.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="row mb-3" *ngIf="alreadyReservedError">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      Już zarezerwowałeś ten przejazd. Wybierz inny przejazd do rezerwacji.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+
+  <table *ngIf="routes.length>0" class="table route-list-table table-responsive-sm mt-5 mb-5">
+    <thead>
+    <tr>
+      <th style="width:5%">Nr</th>
+      <th style="width:10%">Użytkownik</th>
+      <th style="width:10%">Data przejazdu</th>
+      <th style="width:10%">Miasto od</th>
+      <th style="width:10%">Miasto do</th>
+      <th style="width:10%">Liczba wolnych miejsc</th>
+      <th style="width:10%">Cena</th>
+      <th style="width:10%">Akcje</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let route of routes; index as i">
+      <td>{{ i + 1 }}</td>
+      <td>{{ route.user[0].login}}</td>
+      <td>{{ route.travelDate | date:'dd-MM-yyyy' }}</td>
+      <td>{{ route.cityFrom }}</td>
+      <td>{{ route.cityTo }}</td>
+      <td>{{ route.routeDetails[0].freeSpace }}/4</td>
+      <td>{{ route.routeDetails[0].routPrice}} {{route.routeDetails[0].currency}}</td>
+      <td>
+        <a title="Zobacz szczegóły przejazdu" [routerLink]="['/route-details', route._id]"><img
+          src="assets/images/lupa.png" width="40px" height="30px"></a>
+        <button title="Rezerwuj przejazd" class="route_list_reservation_btn"
+                *ngIf="checkReservePermissions(route.user[0]._id) && (route.routeDetails[0].freeSpace > 0)"
+                [disabled]="blockReserveButton" (click)="reserveRoute(route._id, route.routeDetails[0]._id, route.routeDetails[0].freeSpace)"><img
+          class="reservation_image" src="assets/images/rezerwacja_ok.png">
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="infoMessage" *ngIf="routes.length==0">
+    <div class="alert alert-info" role="alert">
+      Nikt nie oferuje przejazdu na tej trasie! <br>
+      Wróć do <a routerLink="/home"> strony głównej</a>.
+    </div>
+  </div>
+</div>

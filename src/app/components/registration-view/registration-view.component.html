@@ -1,0 +1,147 @@
+<div class="container-fluid d-flex flex-column align-items-center">
+  <h4 class="top mr-5">Utwórz konto</h4>
+  <p class="top_p mr-5">Poznajmy się bliżej.<br>Utwórz darmowe konto.</p>
+
+  <form class="d-flex flex-column" [formGroup]="userForm">
+    <div>
+      <input type="text" class="form-check-label" placeholder="login" formControlName="login">
+      <div
+        *ngIf="userForm.get('login').invalid && userForm.get('login').touched"
+        class="alert alert-danger">
+
+        <div *ngIf="userForm.get('login').hasError('required')">
+          Pole jest wymagane
+        </div>
+        <div *ngIf="userForm.get('login').hasError('minlength')">
+          Pole musi mieć conajmniej 3 znaki
+        </div>
+        <div *ngIf="userForm.get('login').hasError('pattern')">
+          Pole zawiera niedozwolone formatowanie
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <input type="text" class="form-check-label" placeholder="e-mail" formControlName="userEmail">
+      <div
+        *ngIf="userForm.get('userEmail').invalid && userForm.get('userEmail').touched"
+        class="alert alert-danger">
+
+        <div *ngIf="userForm.get('userEmail').hasError('required')">
+          Pole jest wymagane
+        </div>
+
+        <div *ngIf="userForm.get('userEmail').hasError('email')">
+          Niepoprawny adres email
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <input type="text" class="form-check-label" placeholder="telefon" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" formControlName="userPhone">
+      <div
+        *ngIf="userForm.get('userPhone').invalid && userForm.get('userPhone').touched"
+        class="alert alert-danger">
+
+        <div *ngIf="userForm.get('userPhone').hasError('required')">
+          Pole jest wymagane
+        </div>
+
+        <div *ngIf="userForm.get('userPhone').hasError('pattern')">
+          Pole zawiera niedozwolone formatowanie.
+          <br> Poprawny format: 000-000-000
+        </div>
+      </div>
+    </div>
+
+    <div formGroupName="passwords">
+      <div class="form-group">
+        <input type="password" placeholder="hasło" class="form-check-label mb-2" formControlName="password" required>
+
+        <div
+          *ngIf="userForm.get('passwords.password').invalid && userForm.get('passwords.password').touched"
+          class="alert alert-danger">
+
+          <div *ngIf="userForm.get('passwords.password').hasError('required')">
+            Pole jest wymagane
+          </div>
+
+          <div *ngIf="userForm.get('passwords.password').hasError('minlength')">
+            Hasło musi mieć conajmniej 5 znaków
+          </div>
+
+          <div *ngIf="userForm.get('passwords.password').hasError('pattern')">
+            Pole musi zawierać znaki z przedziału Aa-Zz oraz zawierać cyfry
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="password" placeholder="powtórz hasło" formControlName="confirm_password"
+               class="form-check-label mb-2" required>
+        <div
+          *ngIf="userForm.get('passwords.confirm_password').invalid && userForm.get('passwords.confirm_password').touched"
+          class="alert alert-danger">
+
+          <div *ngIf="userForm.get('passwords.confirm_password').hasError('required')">
+            Pole jest wymagane
+          </div>
+        </div>
+        <div *ngIf="userForm.get('passwords').hasError('mismatch')"
+             class="alert alert-danger">
+          Hasła się nie zgadzają
+        </div>
+      </div>
+
+    </div>
+
+    <div class="check">
+      <input type="checkbox" formControlName="regulation_confirm" required> *Akceptuję <a target="_blank" href="https://drive.google.com/file/d/17MUKGRb83b5lC889sKoQuMLKnEvLKdZz/view?usp=sharing">regulamin</a> i <br> <a target="_blank" href="https://drive.google.com/file/d/1bzNekbxXV_DiTr0tdjbPkF5rP1gFmkFM/view?usp=sharing">politykę prywatności</a>
+      Przejazdomatu
+    </div>
+
+    <div
+      *ngIf="userForm.get('regulation_confirm').invalid && userForm.get('regulation_confirm').touched"
+      class="alert alert-danger">
+
+      <div *ngIf="userForm.get('regulation_confirm').hasError('required')">
+        Należy zaakceptować regulaminy
+      </div>
+    </div>
+
+    <div *ngIf="showLoader">
+      <progressbar max="100" [value]="100" type="info" [striped]="true" [animate]="true">Trwa zapisywanie
+      </progressbar>
+    </div>
+    <div *ngIf="showSuccessInfo">
+      <div class="alert alert-success" role="alert">
+        Poprawnie zapisano formularz
+      </div>
+    </div>
+    <div *ngIf="showErrors">
+      <div class="alert alert-danger" role="alert">
+        Wystąpił błąd w trakcie zapisu formularza.<br>
+        Spróbuj ponownie.
+      </div>
+    </div>
+
+    <div *ngIf="showNonUniqueMail">
+      <div class="alert alert-danger" role="alert">
+        Niestety podany adres email jest zajęty. <br>
+        Spróbuj ponownie z innym adresem email.
+      </div>
+    </div>
+
+    <div class="row two-button">
+      <div class="col-4">
+        <button type="button" class="btn btn-link pull-left" [routerLink]="['/home']">&larr;Wstecz</button>
+      </div>
+      <div class="col-4">
+        <button type="submit" class="save-user-btn" [disabled]="blockButton" (click)="userFormSubmit()">Utwórz konto</button>
+      </div>
+    </div>
+    <div class="row two-button">
+      <a [routerLink]="['/']" (click)="authService.login()" href="#" class="linkr">Masz już konto? Zaloguj się</a>
+    </div>
+
+  </form>
+</div>

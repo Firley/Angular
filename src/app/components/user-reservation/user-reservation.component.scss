@@ -1,0 +1,34 @@
+$user-reservation-color: rgb(169, 26, 201);
+$user-reservation-font-weight: bold;
+
+.user-reservation-header {
+  color: rgb(87, 87, 87);
+  padding-right: 10px;
+}
+
+.user-reservation-btn {
+  opacity: 1;
+  border-radius: 20px;
+  border: 1px solid $user-reservation-color;
+  background-size: auto;
+  background: $user_reservation_color none repeat center center;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 5px 2px;
+  width: 243px;
+  height: 39px;
+  font-weight: $user-reservation-font-weight;
+  color: white !important;
+  cursor: pointer;
+  text-decoration: none
+}
+
+table.user-reservation-table {
+  width: 70rem;
+  margin-bottom: 150px;
+  th {
+    text-transform: uppercase;
+  }
+}
+
+.title_btn {
+  margin-right: 20px;
+}

@@ -1,0 +1,58 @@
+$user_routes_color: rgb(169, 26, 201);
+$user_routes_font-weight: bold;
+$route-list-btn: rgb(1, 148, 156);
+
+.user-routes-header {
+  color: rgb(87, 87, 87);
+  padding-right: 10px;
+
+}
+
+.add-user-route-btn {
+  opacity: 1;
+  border-radius: 20px;
+  border: 1px solid $user_routes_color;
+  background-size: auto;
+  background: $user_routes_color none repeat center center;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 5px 2px;
+  width: 243px;
+  height: 39px;
+  font-weight: $user_routes_font-weight;
+  color: white;
+  cursor: pointer;
+  text-decoration: none
+}
+
+.route-list-btn {
+  opacity: 1;
+  border-radius: 20px;
+  border: 1px solid $route-list-btn;
+  background-size: auto;
+  background: $route-list-btn none repeat center center;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 5px 2px;
+  width: 243px;
+  height: 39px;
+  font-weight: $user_routes_font-weight;
+  color: white !important;
+  cursor: pointer;
+  text-decoration: none
+}
+
+.edit-route-link {
+  color: $user_routes_color;
+  font-weight: $user_routes_font-weight;
+  text-decoration: none;
+}
+
+table.user-routes-table {
+    width: 70rem;
+    margin-bottom: 150px;
+    th {
+      text-transform: uppercase;
+      border-top: none;
+    }
+}
+
+.title_btn {
+  margin-right: 20px;
+}

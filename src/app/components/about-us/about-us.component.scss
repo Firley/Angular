@@ -1,0 +1,62 @@
+.part {
+  padding: 15px;
+  text-align: left;
+  vertical-align: top;
+  display: inline-block;
+
+  @media screen and (max-width: 567px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 568px) {
+    width: 20rem;
+  }
+  @media screen and (min-width: 768px) {
+    width: 30rem;
+    margin-bottom: 12rem;
+  }
+}
+
+.header1 {
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.txt {
+  font-size: 18px;
+}
+
+.card {
+  @media screen and (max-width: 567px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 568px) {
+    width: 25rem;
+  }
+  @media screen and (min-width: 768px) {
+    width: 50rem;
+    margin-bottom: 12rem;
+  }
+}
+.card-header {
+  color: #A91AC9;
+  @media screen and (max-width: 567px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 568px) {
+    width: 25rem;
+  }
+  @media screen and (min-width: 768px) {
+    width: 50rem;
+  }
+}
+.card-title{
+  text-align: justify;
+}
+
+.card-title2, .card-title1 {
+  font-weight: bold;
+}
+
+.card-text{
+  color: #A91AC9;
+}

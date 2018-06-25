@@ -1,0 +1,77 @@
+.top {
+  font-size: 24px;
+  color: #005CB9;
+  padding-bottom: 20px;
+  font-weight: bold;
+  padding-top: 50px;
+  text-align: left;
+}
+
+.form-check-label {
+  border: 1px solid #C8C8C8;
+  background-color: #ffffff;
+  box-shadow: none;
+  height: 40px;
+  border-radius: 16px;
+  text-align: center;
+  margin-right: 30px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  width: 250px;
+  text-decoration: none;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.two-button {
+  margin-top: 50px;
+}
+
+.return-btn {
+  opacity: 1;
+  border-radius: 20px;
+  border: 1px solid  rgb(1, 148, 156);
+  background-size: auto;
+  background: rgb(1, 148, 156) none repeat center center;
+  width: 100px;
+  color: white !important;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 5px;
+}
+
+.save-user-btn {
+  opacity: 1;
+  border-radius: 20px;
+  border: 1px solid #575757;
+  background-size: auto;
+  background: rgb(169, 26, 201) none repeat center center;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 5px 2px;
+  width: 150px;
+  height: 39px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:disabled {
+    border: 1px solid rgb(153, 149, 149);
+    background: rgb(153, 149, 149) none repeat center center;
+  }
+}
+
+.title_btn {
+  margin-right: 20px;
+}
+
+.two-button {
+  margin-bottom: 100px;
+  margin-top: 50px;
+}

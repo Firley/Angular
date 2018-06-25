@@ -1,0 +1,45 @@
+<div style="padding: 20px" *ngIf="loading">
+  <div class="spinner">
+  </div>
+</div>
+<div class="container-fluid d-flex flex-column align-items-center" *ngIf="!loading">
+
+  <div class="user-reservation-header mt-5 mb-5">
+    <h3><img class="title_btn" src="assets/images/zielony_samochod.png">Moje rezerwacje przejazdów</h3>
+  </div>
+
+  <div class="mb-5">
+    <a class="user-reservation-btn btn" [routerLink]="['/route-list']">Przejdź do listy przejazdów</a>
+  </div>
+
+  <table class="table table-striped table-responsive-sm user-reservation-table mt-5" *ngIf="userReservation">
+    <thead>
+    <tr>
+      <th style="width: 10%">Nr</th>
+      <th style="width: 15%">Użytkownik oferujący</th>
+      <th style="width: 20%">Data przejazdu</th>
+      <th style="width: 15%">Miasto od</th>
+      <th style="width: 10%">Miasto do</th>
+      <th style="width: 20%">Email oferującego</th>
+      <th style="width: 20%">Telefon oferującego</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let reservation of userReservation; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ reservation.route[0].user[0].login }}</td>
+      <td>{{ reservation.route[0].travelDate | date:'dd-MM-yyyy' }}</td>
+      <td>{{ reservation.route[0].cityFrom }}</td>
+      <td>{{ reservation.route[0].cityTo }}</td>
+      <td>{{ reservation.route[0].user[0].userEmail}}</td>
+      <td>{{ reservation.route[0].user[0].userPhone}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="infoMessage" *ngIf="!userReservation">
+    <div class="alert alert-info" role="alert">
+      Brak przypisanych rezerwacji. Zarezerwuj przejazd na liście przejazdów.
+    </div>
+  </div>
+</div>

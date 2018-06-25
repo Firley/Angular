@@ -1,0 +1,39 @@
+<div style="padding: 20px" *ngIf="loading">
+  <div class="spinner">
+  </div>
+</div>
+<div class="container-fluid d-flex flex-column align-items-center"  *ngIf="!loading">
+  <div class="about-us-header mt-2">
+    <h3><img class="title_btn" src="assets/images/czlowiek.png">
+    </h3>
+  </div>
+  <div class="d-flex flex-sm-column flex-column flex-md-row flex-lg-row align-items-stretch">
+    <div class="part">
+      <div class="txt d-flex align-items-center justify-content-center flex-column">
+
+        <div class="card">
+          <div class="card-header">
+            Profil użytkownika
+          </div>
+          <ul class="list-group list-group-flush" *ngIf="fullProfile">
+            <li class="list-group-item"><label>Nazwa użytkownika: </label> <span>{{ fullProfile.login}}</span></li>
+            <li class="list-group-item"><label>Email: </label> <span>{{ fullProfile.userEmail }}</span></li>
+            <li class="list-group-item"><label>Telefon: </label> <span>{{ fullProfile.userPhone }}</span>
+            </li>
+          </ul>
+          <div class="card-body" *ngIf="!fullProfile"><span>Brak informacji o użytkowniku</span></div>
+        </div>
+
+        <div class="row two-button mt-5 mb-5">
+          <div class="col-4">
+            <button type="button" class="btn return-btn pull-left" [routerLink]="['/home']">&larr;Wstecz</button>
+          </div>
+          <div class="col-4" *ngIf="fullProfile">
+            <button class="btn edit-route-btn" title="Edytuj dane użytkownika" [routerLink]="['/user-edit', fullProfile._id]">Edytuj
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
